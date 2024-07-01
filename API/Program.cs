@@ -1,5 +1,6 @@
 
 
+using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 
@@ -18,6 +19,10 @@ builder.Services.AddDbContext<StoreContext>(opt => {
     opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection"));
 
 }); // <> name of class used that is deriving from DbContext
+
+// Interface first, then the implementation class
+builder.Services.AddScoped<IProductRepository, ProductRepository>(); // AddScoped means lifetime of service is the lifetime of the HTTP req (exist until class disposed)
+
 
 var app = builder.Build();
 
