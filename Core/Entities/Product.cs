@@ -1,12 +1,26 @@
 
 namespace Core.Entities
 {
-    public class Product
+    public class Product : BaseEntity
     {
         // [Key] another way to tell EF this is the PK 
-        public int Id { get; set; } // EF will make this the PK by default
+        
 
         public string Name { get; set; }
+        
+        public string Description { get; set; }
+
+        public decimal Price { get; set; }
+
+        public string PictureUrl { get; set; }
+
+        public ProductType ProductType { get; set; } 
+
+        public int ProductTypeId { get; set; } // Will be the FK
+
+        public ProductBrand ProductBrand { get; set; } 
+
+        public int ProductBrandId { get; set; } // Will be FK 
 
     }
 }
