@@ -1,5 +1,6 @@
 
 using Core.Entities;
+using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -11,27 +12,25 @@ namespace API.Controllers
     public class ProductsController : ControllerBase
     {
         
-        private readonly StoreContext _context; // convention to use _ for readonly fields. This gives us access to DbContext 
-        public ProductsController(StoreContext context) // This would be DEPENDENCY INJECTION (req comes into controller, framework root req to our controller, and create an instance of ProductsController
-    // It will see us wanting to create a StoreContext (a service) we specified in our program class, and will create a new instance of dbcontext which our product controller can use
-    // Can then use ALL methods from our dbcontext. When req is done, products controller disposed and storecontext removed (Memory management not needed here!))
+        private readonly IProductRepository _productRepository;
+        
+        public ProductsController(IProductRepository productRepository) 
         {
-            this._context = context;
-            
+            _productRepository = productRepository;  
         }
 
         [HttpGet] // end points
         public async Task<ActionResult<List<Product>>> GetProducts()
         {
-            var products = await _context.Products.ToListAsync();
+            var products = await _productRepository.GetProductsAsync();
             
-            return products;
+            return Ok(products);
         }
 
         [HttpGet("{id}")] // need to specify the root parameter done with {}, and what we are passing in 'id' of product in this case (url api/product/id)
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            return await _context.Products.FindAsync(id);
+            return await _productRepository.GetProductByIdAsync(id);
         }
 
     }
