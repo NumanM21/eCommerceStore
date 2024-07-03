@@ -38,4 +38,18 @@ app.UseAuthorization();
 
 app.MapControllers(); // Register controller end points, so API knows where to send HTTP req coming in 
 
+// Get DbContext (.service is extension of IScoped) and Migrate DB on app being run
+using var scope = app.Services.CreateScope(); 
+var services = scope.ServiceProvider;
+var context = services.GetRequiredService<StoreContext>();
+var logger = services.GetRequiredService<ILogger<Program>>();
+try{
+    await context.Database.MigrateAsync(); 
+}
+catch(Exception e)
+{
+    logger.LogError(e, "Error occuring during migration");
+}
+
+
 app.Run();
