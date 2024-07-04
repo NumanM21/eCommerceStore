@@ -4,7 +4,8 @@ namespace Core.Entities
     public class Product : BaseEntity
     {
         // [Key] another way to tell EF this is the PK 
-        
+        //TODO: Extend this to include Year and Mileage 
+        // Transmission, Fuel type -> Rather than having it in the desc!
 
         public string Name { get; set; }
         

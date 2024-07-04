@@ -2,15 +2,16 @@
   {
     "Name": "Toyota Yaris",
     "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
-    "Price": 22640.00,
+    "Price": 22640,
     "PictureUrl": "images/products/sb-ang1.png",
     "ProductTypeId": 1,
-    "ProductBrandId": 1
+    "ProductBrandId": 1,
+    "TOREMOVE": "TODO: REFACTOR types.json, then REFACTOR ALL OF THESE PRODUCT TYPE AND BRAND IDS!"
   },
   {
     "Name": "Honda Civic",
     "Description": "Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.",
-    "Price": 33500.00,
+    "Price": 33500,
     "PictureUrl": "images/products/sb-ang2.png",
     "ProductTypeId": 1,
     "ProductBrandId": 1
@@ -18,7 +19,7 @@
   {
     "Name": "Aston Martin DB9",
     "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
-    "Price": 64000.00,
+    "Price": 64000,
     "PictureUrl": "images/products/sb-core1.png",
     "ProductTypeId": 1,
     "ProductBrandId": 2
@@ -26,7 +27,7 @@
   {
     "Name": "Audi Q2",
     "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
-    "Price": 18000.00,
+    "Price": 18000,
     "PictureUrl": "images/products/sb-core2.png",
     "ProductTypeId": 1,
     "ProductBrandId": 2
@@ -34,7 +35,7 @@
   {
     "Name": "BMW M4",
     "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
-    "Price": 46000.00,
+    "Price": 46000,
     "PictureUrl": "images/products/sb-react1.png",
     "ProductTypeId": 1,
     "ProductBrandId": 4
@@ -42,7 +43,7 @@
   {
     "Name": "Rolls-Royce Phantom",
     "Description": "Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.",
-    "Price": 78000.00,
+    "Price": 78000,
     "PictureUrl": "images/products/sb-ts1.png",
     "ProductTypeId": 1,
     "ProductBrandId": 5
@@ -50,95 +51,95 @@
   {
     "Name": "Rolls-Royce Wraith",
     "Description": "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
-    "Price": 133000.00,
+    "Price": 133000,
     "PictureUrl": "images/products/hat-core1.png",
     "ProductTypeId": 2,
     "ProductBrandId": 2
   },
   {
-    "Name": "Green React Woolen Hat",
+    "Name": "BMW 118i",
     "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
-    "Price": 8,
+    "Price": 4295,
     "PictureUrl": "images/products/hat-react1.png",
     "ProductTypeId": 2,
     "ProductBrandId": 4
   },
   {
-    "Name": "Purple React Woolen Hat",
+    "Name": "Audi R8",
     "Description": "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
-    "Price": 15,
+    "Price": 230000.00,
     "PictureUrl": "images/products/hat-react2.png",
     "ProductTypeId": 2,
     "ProductBrandId": 4
   },
   {
-    "Name": "Blue Code Gloves",
+    "Name": "Aston Martin Vanquish",
     "Description": "Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.",
-    "Price": 18,
+    "Price": 514000,
     "PictureUrl": "images/products/glove-code1.png",
     "ProductTypeId": 4,
     "ProductBrandId": 3
   },
   {
-    "Name": "Green Code Gloves",
+    "Name": "Aston Martin DBX",
     "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
-    "Price": 15,
+    "Price": 194990,
     "PictureUrl": "images/products/glove-code2.png",
     "ProductTypeId": 4,
     "ProductBrandId": 3
   },
   {
-    "Name": "Purple React Gloves",
+    "Name": "Honda CR-V",
     "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa.",
-    "Price": 16,
+    "Price": 51545,
     "PictureUrl": "images/products/glove-react1.png",
     "ProductTypeId": 4,
     "ProductBrandId": 4
   },
   {
-    "Name": "Green React Gloves",
+    "Name": "Toyota Land Cruiser",
     "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
-    "Price": 14,
+    "Price": 125000,
     "PictureUrl": "images/products/glove-react2.png",
     "ProductTypeId": 4,
     "ProductBrandId": 4
   },
   {
-    "Name": "Redis Red Boots",
+    "Name": "Toyota Supra",
     "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
-    "Price": 250,
+    "Price": 55000,
     "PictureUrl": "images/products/boot-redis1.png",
     "ProductTypeId": 3,
     "ProductBrandId": 6
   },
   {
-    "Name": "Core Red Boots",
+    "Name": "Tesla Roadster",
     "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
-    "Price": 189.99,
+    "Price": 120000,
     "PictureUrl": "images/products/boot-core2.png",
     "ProductTypeId": 3,
     "ProductBrandId": 2
   },
   {
-    "Name": "Core Purple Boots",
+    "Name": "Tesla Model X",
     "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
-    "Price": 199.99,
+    "Price": 75000,
     "PictureUrl": "images/products/boot-core1.png",
     "ProductTypeId": 3,
     "ProductBrandId": 2
   },
   {
-    "Name": "Angular Purple Boots",
+    "Name": "Mercedes-Benz AMG GT",
     "Description": "Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.",
-    "Price": 150,
+    "Price": 549995,
     "PictureUrl": "images/products/boot-ang2.png",
     "ProductTypeId": 3,
     "ProductBrandId": 1
   },
   {
-    "Name": "Angular Blue Boots",
+    "Name": "Mercedes-Benz C63 AMG",
     "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
-    "Price": 180,
+    "Price": 149950,
     "PictureUrl": "images/products/boot-ang1.png",
     "ProductTypeId": 3,
     "ProductBrandId": 1

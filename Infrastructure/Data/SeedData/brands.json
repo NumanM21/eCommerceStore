@@ -22,5 +22,13 @@
   {
     "Id": 6,
     "Name": "Rolls-Royce "
+  },
+  {
+    "Id": 7,
+    "Name": "Tesla "
+  },
+  {
+    "Id": 8,
+    "Name": "Mercedes-Benz"
   }
 ]
