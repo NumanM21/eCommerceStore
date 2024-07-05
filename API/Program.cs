@@ -34,7 +34,7 @@ if (app.Environment.IsDevelopment())
 }
 
 
-app.UseAuthorization();
+app.UseAuthorization();  
 
 app.MapControllers(); // Register controller end points, so API knows where to send HTTP req coming in 
 
@@ -45,6 +45,8 @@ var context = services.GetRequiredService<StoreContext>();
 var logger = services.GetRequiredService<ILogger<Program>>();
 try{
     await context.Database.MigrateAsync(); 
+    // Execute seed data method -> Calling our Async method from StoreContextSeed file.
+    await StoreContextSeed.SeedAsync(context);
 }
 catch(Exception e)
 {
