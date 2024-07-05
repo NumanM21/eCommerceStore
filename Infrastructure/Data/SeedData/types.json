@@ -1,35 +1,14 @@
 [  
   {
     "Id": 1,
-    "Name": "Manual",
-    "TOREMOVE": "TODO: EXTEND THIS CLASS TO be specific which we can filter by (Transmission, fuel.. etc) -"
+    "Name": "Manual"
   },
   {
     "Id": 2,
-    "Name": "Hats"
+    "Name": "Automatic"
   },
   {
     "Id": 3,
-    "Name": "Boots"
-  },
-  {
-    "Id": 4,
-    "Name": "Gloves"
-  },
-  {
-    "Id": 5,
-    "Name": "Gloves"
-  },
-  {
-    "Id": 6,
-    "Name": "Gloves"
-  },
-  {
-    "Id": 7,
-    "Name": "Gloves"
-  },
-  {
-    "Id": 8,
-    "Name": "Gloves"
+    "Name": "Semi-Automatic"
   }
 ]

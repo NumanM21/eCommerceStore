@@ -4,33 +4,32 @@
     "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
     "Price": 22640,
     "PictureUrl": "images/products/sb-ang1.png",
-    "ProductTypeId": 1,
-    "ProductBrandId": 1,
-    "TOREMOVE": "TODO: REFACTOR types.json, then REFACTOR ALL OF THESE PRODUCT TYPE AND BRAND IDS!"
+    "ProductTypeId": 2,
+    "ProductBrandId": 1
   },
   {
     "Name": "Honda Civic",
     "Description": "Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.",
     "Price": 33500,
     "PictureUrl": "images/products/sb-ang2.png",
-    "ProductTypeId": 1,
-    "ProductBrandId": 1
+    "ProductTypeId": 2,
+    "ProductBrandId": 2
   },
   {
     "Name": "Aston Martin DB9",
     "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
     "Price": 64000,
     "PictureUrl": "images/products/sb-core1.png",
-    "ProductTypeId": 1,
-    "ProductBrandId": 2
+    "ProductTypeId": 3,
+    "ProductBrandId": 3
   },
   {
     "Name": "Audi Q2",
     "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
     "Price": 18000,
     "PictureUrl": "images/products/sb-core2.png",
-    "ProductTypeId": 1,
-    "ProductBrandId": 2
+    "ProductTypeId": 3,
+    "ProductBrandId": 4
   },
   {
     "Name": "BMW M4",
@@ -38,38 +37,38 @@
     "Price": 46000,
     "PictureUrl": "images/products/sb-react1.png",
     "ProductTypeId": 1,
-    "ProductBrandId": 4
+    "ProductBrandId": 5
   },
   {
     "Name": "Rolls-Royce Phantom",
     "Description": "Aenean nec lorem. In porttitor. Donec laoreet nonummy augue.",
     "Price": 78000,
     "PictureUrl": "images/products/sb-ts1.png",
-    "ProductTypeId": 1,
-    "ProductBrandId": 5
+    "ProductTypeId": 2,
+    "ProductBrandId": 6
   },
   {
     "Name": "Rolls-Royce Wraith",
     "Description": "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
     "Price": 133000,
     "PictureUrl": "images/products/hat-core1.png",
-    "ProductTypeId": 2,
-    "ProductBrandId": 2
+    "ProductTypeId": 3,
+    "ProductBrandId": 6
   },
   {
     "Name": "BMW 118i",
     "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
     "Price": 4295,
     "PictureUrl": "images/products/hat-react1.png",
-    "ProductTypeId": 2,
-    "ProductBrandId": 4
+    "ProductTypeId": 1,
+    "ProductBrandId": 5
   },
   {
     "Name": "Audi R8",
     "Description": "Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
     "Price": 230000.00,
     "PictureUrl": "images/products/hat-react2.png",
-    "ProductTypeId": 2,
+    "ProductTypeId": 1,
     "ProductBrandId": 4
   },
   {
@@ -77,7 +76,7 @@
     "Description": "Nunc viverra imperdiet enim. Fusce est. Vivamus a tellus.",
     "Price": 514000,
     "PictureUrl": "images/products/glove-code1.png",
-    "ProductTypeId": 4,
+    "ProductTypeId": 3,
     "ProductBrandId": 3
   },
   {
@@ -85,7 +84,7 @@
     "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
     "Price": 194990,
     "PictureUrl": "images/products/glove-code2.png",
-    "ProductTypeId": 4,
+    "ProductTypeId": 2,
     "ProductBrandId": 3
   },
   {
@@ -93,40 +92,40 @@
     "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa.",
     "Price": 51545,
     "PictureUrl": "images/products/glove-react1.png",
-    "ProductTypeId": 4,
-    "ProductBrandId": 4
+    "ProductTypeId": 2,
+    "ProductBrandId": 2
   },
   {
     "Name": "Toyota Land Cruiser",
     "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
     "Price": 125000,
     "PictureUrl": "images/products/glove-react2.png",
-    "ProductTypeId": 4,
-    "ProductBrandId": 4
+    "ProductTypeId": 2,
+    "ProductBrandId": 1
   },
   {
     "Name": "Toyota Supra",
     "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
     "Price": 55000,
     "PictureUrl": "images/products/boot-redis1.png",
-    "ProductTypeId": 3,
-    "ProductBrandId": 6
+    "ProductTypeId": 1,
+    "ProductBrandId": 1
   },
   {
     "Name": "Tesla Roadster",
     "Description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Maecenas porttitor congue massa. Fusce posuere, magna sed pulvinar ultricies, purus lectus malesuada libero, sit amet commodo magna eros quis urna.",
     "Price": 120000,
     "PictureUrl": "images/products/boot-core2.png",
-    "ProductTypeId": 3,
-    "ProductBrandId": 2
+    "ProductTypeId": 2,
+    "ProductBrandId": 7
   },
   {
     "Name": "Tesla Model X",
     "Description": "Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Proin pharetra nonummy pede. Mauris et orci.",
     "Price": 75000,
     "PictureUrl": "images/products/boot-core1.png",
-    "ProductTypeId": 3,
-    "ProductBrandId": 2
+    "ProductTypeId": 2,
+    "ProductBrandId": 7
   },
   {
     "Name": "Mercedes-Benz AMG GT",
@@ -134,14 +133,14 @@
     "Price": 549995,
     "PictureUrl": "images/products/boot-ang2.png",
     "ProductTypeId": 3,
-    "ProductBrandId": 1
+    "ProductBrandId": 9
   },
   {
     "Name": "Mercedes-Benz C63 AMG",
     "Description": "Suspendisse dui purus, scelerisque at, vulputate vitae, pretium mattis, nunc. Mauris eget neque at sem venenatis eleifend. Ut nonummy.",
     "Price": 149950,
     "PictureUrl": "images/products/boot-ang1.png",
-    "ProductTypeId": 3,
-    "ProductBrandId": 1
+    "ProductTypeId": 1,
+    "ProductBrandId": 8
   }
 ]
