@@ -1,14 +1,14 @@
 [  
   {
-    "Id": 1,
+    "ProductTypeId": 1,
     "Name": "Manual"
   },
   {
-    "Id": 2,
+    "ProductTypeId": 2,
     "Name": "Automatic"
   },
   {
-    "Id": 3,
+    "ProductTypeId": 3,
     "Name": "Semi-Automatic"
   }
 ]
