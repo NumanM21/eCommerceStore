@@ -1,0 +1,34 @@
+[
+  {
+    "ProductBrandId": 1,
+    "Name": "Toyota"
+  },
+  {
+    "ProductBrandId": 2,
+    "Name": "Honda"
+  },
+  {
+    "ProductBrandId": 3,
+    "Name": "Aston Martin"
+  },
+  {
+    "ProductBrandId": 4,
+    "Name": "Audi"
+  },
+  {
+    "ProductBrandId": 5,
+    "Name": "BMW"
+  },
+  {
+    "ProductBrandId": 6,
+    "Name": "Rolls-Royce "
+  },
+  {
+    "ProductBrandId": 7,
+    "Name": "Tesla "
+  },
+  {
+    "ProductBrandId": 8,
+    "Name": "Mercedes-Benz"
+  }
+]

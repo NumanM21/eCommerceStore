@@ -1,34 +1,26 @@
 [
   {
-    "ProductBrandId": 1,
-    "Name": "Toyota"
+    "Id": 1,
+    "Name": "Angular"
   },
   {
-    "ProductBrandId": 2,
-    "Name": "Honda"
+    "Id": 2,
+    "Name": "NetCore"
   },
   {
-    "ProductBrandId": 3,
-    "Name": "Aston Martin"
+    "Id": 3,
+    "Name": "VS Code"
   },
   {
-    "ProductBrandId": 4,
-    "Name": "Audi"
+    "Id": 4,
+    "Name": "React"
   },
   {
-    "ProductBrandId": 5,
-    "Name": "BMW"
+    "Id": 5,
+    "Name": "Typescript"
   },
   {
-    "ProductBrandId": 6,
-    "Name": "Rolls-Royce "
-  },
-  {
-    "ProductBrandId": 7,
-    "Name": "Tesla "
-  },
-  {
-    "ProductBrandId": 8,
-    "Name": "Mercedes-Benz"
+    "Id": 6,
+    "Name": "Redis"
   }
 ]
