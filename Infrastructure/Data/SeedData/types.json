@@ -1,18 +1,14 @@
-[
+[  
   {
-    "Id": 1,
-    "Name": "Boards"
+    "ProductTypeId": 1,
+    "Name": "Manual"
   },
   {
-    "Id": 2,
-    "Name": "Hats"
+    "ProductTypeId": 2,
+    "Name": "Automatic"
   },
   {
-    "Id": 3,
-    "Name": "Boots"
-  },
-  {
-    "Id": 4,
-    "Name": "Gloves"
+    "ProductTypeId": 3,
+    "Name": "Semi-Automatic"
   }
 ]
