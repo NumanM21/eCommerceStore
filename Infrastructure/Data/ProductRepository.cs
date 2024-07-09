@@ -21,12 +21,19 @@ namespace Infrastructure.Data
 
         public async Task<Product> GetProductByIdAsync(int id)
         {
-            return await _context.Products.FindAsync(id);
+            return await _context.Products
+            .Include(pt => pt.ProductType)
+            .Include(pb => pb.ProductBrand)
+            .FirstOrDefaultAsync(x => x.Id == id); // gets the first match where our Id in our DB is equal to id being passed in parameter
         }
 
         public async Task<IReadOnlyList<Product>> GetProductsAsync()
         {
-            return await _context.Products.ToListAsync();
+            return await _context.Products
+            // Can use LINQ to eager load additional information PER query we are going to make!
+            .Include(pt => pt.ProductType)
+            .Include(pb => pb.ProductBrand)
+            .ToListAsync(); // Point which our Query is sent to SQL and we receive data back
         }
 
         public async Task<IReadOnlyList<ProductType>> GetProductTypesAsync()
