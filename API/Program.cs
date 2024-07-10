@@ -22,7 +22,8 @@ builder.Services.AddDbContext<StoreContext>(opt => {
 
 // Interface first, then the implementation class
 builder.Services.AddScoped<IProductRepository, ProductRepository>(); // AddScoped means lifetime of service is the lifetime of the HTTP req (exist until class disposed)
-
+// For Generic, don't have a TYPE yet, so differnet syntax to product repo
+builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
 
 var app = builder.Build();
 
