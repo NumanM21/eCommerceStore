@@ -4,19 +4,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using Core.Entities;
 using Core.Interfaces;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Infrastructure.Data
 {
     public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity // Also have to MATCH constrains in child class
     {
-        public Task<T> GetProductByIdAsync(int id)
+        private readonly StoreContext _context;
+        public GenericRepository(StoreContext context)
         {
-            throw new NotImplementedException();
+            _context = context;
         }
 
-        public Task<IReadOnlyList<T>> ListAllProductsAsync()
+        public async Task<T> GetProductByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Set<T>().FindAsync(id); // .Set<> will set the type of whatever we want to get ('T' replaced with type)
+        }
+
+        public async Task<IReadOnlyList<T>> ListAllProductsAsync()
+        {
+            return await _context.Set<T>().ToListAsync();
         }
     }
 }

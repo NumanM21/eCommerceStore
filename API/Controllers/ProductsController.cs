@@ -11,18 +11,26 @@ namespace API.Controllers
     [Route("api/[controller]")] // how to get to this controller (url is api/(The Controller -> products)/MethodName -> What we use to test in postman too!)
     public class ProductsController : ControllerBase
     {
-        
-        private readonly IProductRepository _productRepository;
-        
-        public ProductsController(IProductRepository productRepository) 
+        private readonly IGenericRepository<Product> _repoProduct;
+        private readonly IGenericRepository<ProductBrand> _repoProductBrand;
+        private readonly IGenericRepository<ProductType> _repoProductType;
+       
+        // Now we have a GENERIC repo, each of our entity will have its OWN repo instance
+        public ProductsController(
+            IGenericRepository<Product> repoProducts, 
+            IGenericRepository<ProductBrand> repoProductBrand, 
+            IGenericRepository<ProductType> repoProductType) 
         {
-            _productRepository = productRepository;  
+            _repoProduct = repoProducts;
+            _repoProductBrand = repoProductBrand;
+            _repoProductType = repoProductType;
+
         }
 
         [HttpGet] // end points
         public async Task<ActionResult<List<Product>>> GetProducts()
         {
-            var products = await _productRepository.GetProductsAsync();
+            var products = await _repoProduct.ListAllProductsAsync();
             
             return Ok(products);
         }
@@ -30,19 +38,19 @@ namespace API.Controllers
         [HttpGet("{id}")] // need to specify the root parameter done with {}, and what we are passing in 'id' of product in this case (url: api/product/id)
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            return await _productRepository.GetProductByIdAsync(id);
+            return await _repoProduct.GetProductByIdAsync(id);
         }
             // TODO: Can extend these to cover future details we would have (I.e. Fuel, Transmission, etc)
         [HttpGet("brands")]
         public async Task<ActionResult<IReadOnlyList<ProductBrand>>> GetProductBrands()
         {
-            return Ok(await _productRepository.GetProductBrandsAsync()); // IReadOnlyList gives error to action result, so can use Ok() to work around it
+            return Ok(await _repoProductBrand.ListAllProductsAsync()); // IReadOnlyList gives error to action result, so can use Ok() to work around it
         }
 
         [HttpGet("types")] 
-        public async Task<ActionResult<IReadOnlyList<ProductBrand>>> GetProductTypes()
+        public async Task<ActionResult<IReadOnlyList<ProductType>>> GetProductTypes()
         {
-            return Ok(await _productRepository.GetProductTypesAsync()); 
+            return Ok(await _repoProductType.ListAllProductsAsync()); 
         }
 
 
