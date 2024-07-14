@@ -1,6 +1,7 @@
 
 using Core.Entities;
 using Core.Interfaces;
+using Core.Specifications;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -30,7 +31,9 @@ namespace API.Controllers
         [HttpGet] // end points
         public async Task<ActionResult<List<Product>>> GetProducts()
         {
-            var products = await _repoProduct.ListAllProductsAsync();
+            var specification = new ProductsWithTypesAndBrandsSpecification();
+
+            var products = await _repoProduct.ListAsync(specification);
             
             return Ok(products);
         }
@@ -38,9 +41,11 @@ namespace API.Controllers
         [HttpGet("{id}")] // need to specify the root parameter done with {}, and what we are passing in 'id' of product in this case (url: api/product/id)
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            return await _repoProduct.GetProductByIdAsync(id);
+            var specification = new ProductsWithTypesAndBrandsSpecification(id); 
+
+            return await _repoProduct.GetEntityWithSpecification(specification);
         }
-            // TODO: Can extend these to cover future details we would have (I.e. Fuel, Transmission, etc)
+            ///// TODO: Can extend these to cover future details we would have (I.e. Fuel, Transmission, etc) \\\\\\ 
         [HttpGet("brands")]
         public async Task<ActionResult<IReadOnlyList<ProductBrand>>> GetProductBrands()
         {

@@ -8,9 +8,10 @@ namespace Core.Specifications
 {
     public class BaseSpecification<T> : ISpecification<T>
     {
+        public BaseSpecification() {} // Empty Constructore to remove errors in type specific spec classes
         public BaseSpecification(Expression<Func<T, bool>> criteria)
         {
-            Criteria = criteria;
+            Criteria = criteria; // Critera here set to whatever this expression being passed in is (we specify the critera when creating the specific ctor)
         }
 
         public Expression<Func<T, bool>> Criteria {get;}
