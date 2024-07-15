@@ -1,4 +1,5 @@
 
+using API.DTOs;
 using Core.Entities;
 using Core.Interfaces;
 using Core.Specifications;
@@ -29,21 +30,41 @@ namespace API.Controllers
         }
 
         [HttpGet] // end points
-        public async Task<ActionResult<List<Product>>> GetProducts()
+        public async Task<ActionResult<List<ProductToReturnDto>>> GetProducts()
         {
             var specification = new ProductsWithTypesAndBrandsSpecification();
 
-            var products = await _repoProduct.ListAsync(specification);
-            
-            return Ok(products);
+            var products = await _repoProduct.ListAsync(specification); // This is where we 'hit' our DB to pull the relevant products 
+            // Use .Select to project our sequence (list here) into a product Dto instead
+            return products.Select(product => new ProductToReturnDto
+            {
+                 Id = product.Id,
+                Name = product.Name,
+                Description = product.Description,
+                PictureUrl = product.PictureUrl,
+                Price = product.Price,
+                ProductBrand = product.ProductBrand.Name,
+                ProductType = product.ProductType.Name
+            }).ToList(); // ToList not running against DB, runs against products variable (stores all of our data in this var)
         }
 
         [HttpGet("{id}")] // need to specify the root parameter done with {}, and what we are passing in 'id' of product in this case (url: api/product/id)
-        public async Task<ActionResult<Product>> GetProduct(int id)
+        public async Task<ActionResult<ProductToReturnDto>> GetProduct(int id)
         {
             var specification = new ProductsWithTypesAndBrandsSpecification(id); 
 
-            return await _repoProduct.GetEntityWithSpecification(specification);
+            var product = await _repoProduct.GetEntityWithSpecification(specification);
+
+            return new ProductToReturnDto // Will make properties from our repoProduct (stored in product) to our DTO to return to client!
+            {
+                Id = product.Id,
+                Name = product.Name,
+                Description = product.Description,
+                PictureUrl = product.PictureUrl,
+                Price = product.Price,
+                ProductBrand = product.ProductBrand.Name,
+                ProductType = product.ProductType.Name
+            };
         }
             ///// TODO: Can extend these to cover future details we would have (I.e. Fuel, Transmission, etc) \\\\\\ 
         [HttpGet("brands")]
