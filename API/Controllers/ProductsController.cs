@@ -1,5 +1,6 @@
 
 using API.DTOs;
+using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 using Core.Specifications;
@@ -16,16 +17,20 @@ namespace API.Controllers
         private readonly IGenericRepository<Product> _repoProduct;
         private readonly IGenericRepository<ProductBrand> _repoProductBrand;
         private readonly IGenericRepository<ProductType> _repoProductType;
+
+        private readonly IMapper _mapper;
        
         // Now we have a GENERIC repo, each of our entity will have its OWN repo instance
         public ProductsController(
             IGenericRepository<Product> repoProducts, 
             IGenericRepository<ProductBrand> repoProductBrand, 
-            IGenericRepository<ProductType> repoProductType) 
+            IGenericRepository<ProductType> repoProductType,
+            IMapper mapper) // Imapper is interface for automapper which we can use
         {
             _repoProduct = repoProducts;
             _repoProductBrand = repoProductBrand;
             _repoProductType = repoProductType;
+            _mapper = mapper;
 
         }
 
@@ -38,7 +43,7 @@ namespace API.Controllers
             // Use .Select to project our sequence (list here) into a product Dto instead
             return products.Select(product => new ProductToReturnDto
             {
-                 Id = product.Id,
+                Id = product.Id,
                 Name = product.Name,
                 Description = product.Description,
                 PictureUrl = product.PictureUrl,
@@ -54,17 +59,8 @@ namespace API.Controllers
             var specification = new ProductsWithTypesAndBrandsSpecification(id); 
 
             var product = await _repoProduct.GetEntityWithSpecification(specification);
-
-            return new ProductToReturnDto // Will make properties from our repoProduct (stored in product) to our DTO to return to client!
-            {
-                Id = product.Id,
-                Name = product.Name,
-                Description = product.Description,
-                PictureUrl = product.PictureUrl,
-                Price = product.Price,
-                ProductBrand = product.ProductBrand.Name,
-                ProductType = product.ProductType.Name
-            };
+                // Will make properties from our repoProduct (stored in product) to our DTO to return to client!
+            return _mapper.Map<Product, ProductToReturnDto>(product);
         }
             ///// TODO: Can extend these to cover future details we would have (I.e. Fuel, Transmission, etc) \\\\\\ 
         [HttpGet("brands")]
