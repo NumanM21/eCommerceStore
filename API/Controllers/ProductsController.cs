@@ -35,22 +35,13 @@ namespace API.Controllers
         }
 
         [HttpGet] // end points
-        public async Task<ActionResult<List<ProductToReturnDto>>> GetProducts()
+        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts()
         {
             var specification = new ProductsWithTypesAndBrandsSpecification();
 
             var products = await _repoProduct.ListAsync(specification); // This is where we 'hit' our DB to pull the relevant products 
-            // Use .Select to project our sequence (list here) into a product Dto instead
-            return products.Select(product => new ProductToReturnDto
-            {
-                Id = product.Id,
-                Name = product.Name,
-                Description = product.Description,
-                PictureUrl = product.PictureUrl,
-                Price = product.Price,
-                ProductBrand = product.ProductBrand.Name,
-                ProductType = product.ProductType.Name
-            }).ToList(); // ToList not running against DB, runs against products variable (stores all of our data in this var)
+            // Use .Select to project our sequence (list here) into a product Dto instead // Using Ok() since we return IReadOnlyList
+            return Ok(_mapper.Map<IReadOnlyList<Product>, IReadOnlyList<ProductToReturnDto>>(products));
         }
 
         [HttpGet("{id}")] // need to specify the root parameter done with {}, and what we are passing in 'id' of product in this case (url: api/product/id)
