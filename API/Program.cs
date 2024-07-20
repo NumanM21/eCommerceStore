@@ -36,8 +36,11 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+app.UseStaticFiles();// Static Files being SERVED, should be ABOVE app.UseAuthorization()
+
 
 app.UseAuthorization();  
+
 
 app.MapControllers(); // Register controller end points, so API knows where to send HTTP req coming in 
 
