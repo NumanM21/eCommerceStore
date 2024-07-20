@@ -13,7 +13,8 @@ namespace API.PackageHelpers
             // Where from and to in <>. Takes property names from Product and matches it to ProductToReturnDto (if they match)
             CreateMap<Product, ProductToReturnDto>()
                 .ForMember(x => x.ProductType, opt => opt.MapFrom(s => s.ProductType.Name))
-                .ForMember(x => x.ProductBrand, opt => opt.MapFrom(s => s.ProductBrand.Name));
+                .ForMember(x => x.ProductBrand, opt => opt.MapFrom(s => s.ProductBrand.Name))                
+                .ForMember(x => x.PictureUrl, opt => opt.MapFrom<ProdUrlResolver>());
         }
     }
 }
