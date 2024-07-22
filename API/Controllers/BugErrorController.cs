@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API.ErrorHandling;
 using Infrastructure.Data;
 using Microsoft.AspNetCore.Mvc;
 
@@ -25,7 +26,7 @@ namespace API.Controllers
 
             if (item == null)
             {
-                return NotFound();
+                return NotFound(new ApiResponse(404));
             }
 
             return Ok();
@@ -46,7 +47,7 @@ namespace API.Controllers
         [HttpGet("bad-request")] // 400
         public ActionResult GetBadRequest() 
         {
-            return BadRequest();
+            return BadRequest(new ApiResponse(400));
 
         }
 
