@@ -29,7 +29,11 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositor
 
 var app = builder.Build();
 
+// NOTE, to stop routing/re-routing, we create the logic for it here in the MIDDLEWARE (In the HTTP Pipeline) 
 // Configure the HTTP request pipeline. --> // Will have middleware here (What happens to HTTP req in and before going out)
+
+app.UseStatusCodePagesWithReExecute("/end-point-error/{0}"); // Passed to error controller (NoEndPoint Controller)
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
