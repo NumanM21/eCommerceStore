@@ -10,9 +10,8 @@ using Microsoft.EntityFrameworkCore;
 
 namespace API.Controllers
 {
-    [ApiController] // Responsible for mapping parameters passed into methods (I.e. the "{id}") 
-    [Route("api/[controller]")] // how to get to this controller (url is api/(The Controller -> products)/MethodName -> What we use to test in postman too!)
-    public class ProductsController : ControllerBase
+    
+    public class ProductsController : BaseApiController
     {
         private readonly IGenericRepository<Product> _repoProduct;
         private readonly IGenericRepository<ProductBrand> _repoProductBrand;
@@ -31,8 +30,8 @@ namespace API.Controllers
             _repoProductBrand = repoProductBrand;
             _repoProductType = repoProductType;
             _mapper = mapper;
-
         }
+        
 
         [HttpGet] // end points
         public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts()
