@@ -14,7 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+builder.Services.AddSwaggerGen(); // Service to generate Swagger -> Documents our Api folder in JSON file to generate Swagger UI
 // Have to tell it where to find our auto mapping class on start up
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies()); 
 builder.Services.AddDbContext<StoreContext>(opt => {
@@ -57,7 +57,7 @@ var app = builder.Build();
 app.UseMiddleware<ApiExceptionMiddleware>();
 app.UseStatusCodePagesWithReExecute("/end-point-error/{0}"); // Passed to error controller (NoEndPoint Controller)
 
-if (app.Environment.IsDevelopment())
+if (app.Environment.IsDevelopment()) // Swagger Middleware
 {
     app.UseSwagger();
     app.UseSwaggerUI();
