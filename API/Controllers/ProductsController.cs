@@ -1,10 +1,13 @@
 
 using API.DTOs;
+using API.ErrorHandling;
 using AutoMapper;
 using Core.Entities;
 using Core.Interfaces;
 using Core.Specifications;
 using Infrastructure.Data;
+using Infrastructure.Data.Configuration;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -44,11 +47,17 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")] // need to specify the root parameter done with {}, and what we are passing in 'id' of product in this case (url: api/product/id)
+        [ProducesResponseType(StatusCodes.Status200OK)] // Tell Swagger status codes we can expect from method
+        [ProducesResponseType(typeof(ApiResponse),StatusCodes.Status404NotFound)] // Can now see both responses on swagger -> More specific using typeof
         public async Task<ActionResult<ProductToReturnDto>> GetProduct(int id)
         {
             var specification = new ProductsWithTypesAndBrandsSpecification(id); 
 
             var product = await _repoProduct.GetEntityWithSpecification(specification);
+
+            // Check if product is Null (Error handling)
+            if (product == null) return NotFound(new ApiResponse(404));
+
                 // Will make properties from our repoProduct (stored in product) to our DTO to return to client!
             return _mapper.Map<Product, ProductToReturnDto>(product);
         }
