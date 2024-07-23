@@ -1,5 +1,6 @@
 
 
+using API.Middleware;
 using Core.Interfaces;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
@@ -29,9 +30,11 @@ builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepositor
 
 var app = builder.Build();
 
-// NOTE, to stop routing/re-routing, we create the logic for it here in the MIDDLEWARE (In the HTTP Pipeline) 
+/// NOTE -> Exception Middleware at START of HTTP pipeline (If any process in pipeline fails, .Net auto reverses Pipeline until it reaches a exception/ error handling stage again)
+/// NOTE -> To stop routing/re-routing, we create the logic for it here in the MIDDLEWARE (In the HTTP Pipeline) 
 // Configure the HTTP request pipeline. --> // Will have middleware here (What happens to HTTP req in and before going out)
 
+app.UseMiddleware<ApiExceptionMiddleware>();
 app.UseStatusCodePagesWithReExecute("/end-point-error/{0}"); // Passed to error controller (NoEndPoint Controller)
 
 if (app.Environment.IsDevelopment())
