@@ -37,9 +37,10 @@ namespace API.Controllers
         
 
         [HttpGet] // end points
-        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts()
+        public async Task<ActionResult<IReadOnlyList<ProductToReturnDto>>> GetProducts(string specificationToSort)
         {
-            var specification = new ProductsWithTypesAndBrandsSpecification();
+            // Have to pass specificationToSort from CLIENT to specification class 
+            var specification = new ProductsWithTypesAndBrandsSpecification(specificationToSort);
 
             var products = await _repoProduct.ListAsync(specification); // This is where we 'hit' our DB to pull the relevant products 
             // Use .Select to project our sequence (list here) into a product Dto instead // Using Ok() since we return IReadOnlyList

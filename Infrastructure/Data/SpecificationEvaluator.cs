@@ -20,6 +20,16 @@ namespace Infrastructure.Data
                 query = query.Where(specification.Criteria);
             }
 
+              if (specification.OrderBy != null)
+            {   
+                query = query.OrderBy(specification.Criteria); // This OrderBy is the LINQ one, we are re-creating this so match what we want specifically!
+            }
+
+              if (specification.OrderByDescending != null) // Want to evaluate our query
+            {   
+                query = query.OrderByDescending(specification.Criteria);
+            }
+
             // Now want to evaluate our Inlcudes method | Aggregate -> Similar to accumilating all our .Include method in LINQ
             // CurrentEntity -> Entity we are passing in here. include -> Expression of our includes statement  
             query = specification.Includes.Aggregate(query, (currentEntity, include) => currentEntity.Include(include));
