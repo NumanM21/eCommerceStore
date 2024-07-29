@@ -11,6 +11,23 @@ namespace Core.Specifications
             AddToInclude(x => x.ProductType);
             AddToInclude(x => x.ProductBrand);
             AddOrderBy(x => x.Name); // Default Ordering (so Alphabetical)
+
+            // Give customer choice to SORT via price (TODO: Can extend this to include other sorting filter (i.e. distance/ mileage.. etc))
+            if (!string.IsNullOrEmpty(productsToSort))
+            {
+                switch (productsToSort)
+                {
+                    case "priceAscending":
+                        AddOrderBy(price => price.Price);
+                        break;
+                    case "priceDescending":
+                        AddOrderBy(price => price.Price);
+                        break;
+                    default:
+                        AddOrderBy(x => x.Name);
+                        break;
+                }
+            }
         }
 
         // Can use Ctor WITH parameters, to specify the product ID which we want to return (GetProduct) -> Both derive from BaseSpecification class
