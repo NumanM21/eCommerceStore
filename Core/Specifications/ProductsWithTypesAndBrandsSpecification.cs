@@ -21,7 +21,7 @@ namespace Core.Specifications
                         AddOrderBy(price => price.Price);
                         break;
                     case "priceDescending":
-                        AddOrderBy(price => price.Price);
+                        AddOrderByDescending(price => price.Price);
                         break;
                     default:
                         AddOrderBy(x => x.Name);

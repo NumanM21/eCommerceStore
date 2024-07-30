@@ -22,12 +22,12 @@ namespace Infrastructure.Data
 
               if (specification.OrderBy != null)
             {   
-                query = query.OrderBy(specification.Criteria); // This OrderBy is the LINQ one, we are re-creating this so match what we want specifically!
+                query = query.OrderBy(specification.OrderBy); // This OrderBy is the LINQ one, we are re-creating this so match what we want specifically!
             }
-
+                    // FIXME: Can change this 3rd if to be an else if to avoid ArgumentNullException error being thrown!
               if (specification.OrderByDescending != null) // Want to evaluate our query
             {   
-                query = query.OrderByDescending(specification.Criteria);
+                query = query.OrderByDescending(specification.OrderByDescending);
             }
 
             // Now want to evaluate our Inlcudes method | Aggregate -> Similar to accumilating all our .Include method in LINQ
