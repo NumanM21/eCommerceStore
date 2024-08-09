@@ -30,7 +30,7 @@ namespace Infrastructure.Data
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly()); 
 
             // Change Decimal to DOUBLE (double support by SQLite -> Prevent 500 error)
-            if (Database.ProviderName == "Microsoft.EntityFrameWorkCore.Sqlite")
+            if (Database.ProviderName == "Microsoft.EntityFrameworkCore.Sqlite")
             {
                 // This conversion ONLY happens when Sqlite is RETURNING a decimal value BACK (will convert to double at that point)
 
